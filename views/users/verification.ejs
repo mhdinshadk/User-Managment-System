@@ -1,0 +1,36 @@
+<%- include('../layouts/header.ejs') %>
+
+<% 
+  if(typeof message !== 'undefined'){
+    %>
+     <h4><%= message %></h4>
+    <%
+  }
+
+%>
+
+<!-- 
+<form action="" method="post">
+
+    <input type="email" name="email" required placeholder="Enter email">
+    <br><br>
+    <input type="submit" value="Send Verification Link">
+
+</form> -->
+<div class="container" style="background-color: rgb(182, 213, 228);
+  width:500px;
+  padding: 100px;
+  border-radius: 20px;
+  margin-top: 182px;
+  margin-left: 486px;
+  box-shadow: 30px;
+
+" >
+<h1 style="margin-left: 30px;
+margin-top: 22px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: rgb(39, 124, 96);">Verification</h1>
+<form action="" method="post">
+    <input class="txt" type="email" name="email" required placeholder="Enter email" style="padding: 13px;font-size: 20px;border-radius: 10px;background-color: darkgrey;">
+    <br><br>
+    <input type="submit" value="Send Verification Link" style="padding: 6px;background-color: chartreuse;border-radius: 10px;">
+  </form>
+<%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,161 @@
+<%- include("../layouts/header.ejs") %>
+
+<!-- <img src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>">
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    <input type="file" name="image">
+    <input type="hidden" name="user_id" value="<%= user._id %>">
+    <br><br>
+   <input type="text" name="name" value="<%= user.name %>" placeholder="Enter Name" required>
+   <br><br>
+   <input type="email" name="email" value="<%= user.email %>" placeholder="Enter Email" required>
+   <br><br>
+   <input type="text" name="mno" value="<%= user.mobile %>" placeholder="Enter Mobile" required>
+<br>
+    <input type="submit" value="Update Profile">
+
+</form> -->
+<%- include("../layouts/header.ejs") %>
+
+
+<div id="pcoded" class="pcoded">
+  <div class="pcoded-overlay-box"></div>
+  <div class="pcoded-container navbar-wrapper">
+
+      <nav class="navbar header-navbar pcoded-header">
+          <div class="navbar-wrapper">
+
+              <div class="navbar-logo">
+                  <a class="mobile-menu" id="mobile-collapse" href="#!">
+                      <i class="ti-menu"></i>
+                  </a>
+                  <a class="mobile-search morphsearch-search" href="#">
+                      <i class="ti-search"></i>
+                  </a>
+                  <a href="index.html">
+                      <img class="img-fluid" src="assets/images/logo.png" style="width: 50px;" alt="Theme-Logo" />
+                  </a>
+                  <a class="mobile-options">
+                      <i class="ti-more"></i>
+                  </a>
+              </div>
+
+              <div class="navbar-container container-fluid">
+                  <ul class="nav-left">
+                      <li>
+                          <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                      </li>
+                      
+                      <li>
+                          <a href="#!" onclick="javascript:toggleFullScreen()">
+                              <i class="ti-fullscreen"></i>
+                          </a>
+                      </li>
+                  </ul>
+                  <ul class="nav-right">
+                    
+                      
+                  </ul>
+                  
+              </div>
+          </div>
+      </nav>
+
+      <div class="pcoded-main-container">
+          <div class="pcoded-wrapper">
+              <nav class="pcoded-navbar">
+                  <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                  <div class="pcoded-inner-navbar main-menu">
+                      
+                      <div class="pcoded-search">
+                          <span class="searchbar-toggle">  </span>
+                          <div class="pcoded-search-box ">
+                              <input type="text" placeholder="Search">
+                              <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
+                          </div>
+                      </div>
+                     
+                      <ul class="pcoded-item pcoded-left-item">
+                          <li class="">
+                            <a href="/admin/">
+                                  <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                                  <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                                  <span class="pcoded-mcaret"></span>
+                              </a>
+                          </li>
+                          
+                      </ul>
+                      <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Actions</div>
+                      <ul class="pcoded-item pcoded-left-item">
+                          
+                          
+                          
+                      </ul>               
+                      
+                  </div>
+              </nav>
+              <div class="pcoded-content">
+                  <div class="pcoded-inner-content">
+
+                      <div class="main-body">
+                          <div class="page-wrapper">
+                              
+
+                              <div class="page-body">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="card">
+                                              <div class="card-header">
+                                                  <h5>users</h5>
+                                                
+                                                  
+                                              </div>
+                                              <div class="card-block">
+<form action="" method="POST">
+
+    <input type="name" name="name" placeholder="Enter Name" value="<%= user.name %>" required>
+    <br><br>
+    <input type="email" name="email" placeholder="Enter Email" value="<%= user.email %>" required>
+    <br><br>
+    <input type="text" name="mno" placeholder="Enter Mobile" value="<%= user.mobile %>" required>
+    <br><br>
+    <label> Verified </label>
+    <input type="radio" name="verify" value="1" <% if(user.is_varified == 1){ %> checked <% } %> >
+    <label> Unverified </label>
+    <input type="radio" name="verify" value="0" <% if(user.is_varified == 0){ %> checked <% } %>>
+    <br><br>
+    <input type="hidden" name="id" value="<%= user._id %>">
+    <input type="submit" value="Update User">
+
+</form>
+
+
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fixed-button">
+<a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">
+<i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
+</a>
+</div>
+
+<%- include("../layouts/footer.ejs") %>
+
+
+
+
+
+

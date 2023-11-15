@@ -1,0 +1,157 @@
+<%- include('../layouts/header.ejs') %>
+
+<!-- <h1>User Registration Form</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Enter Name" required>
+    <br><br>
+    <input type="email" name="email" placeholder="Enter Email" required>
+    <br><br>
+    <input type="text" name="mno" placeholder="Enter Mobile" required>
+    <br><br>
+    <input type="file" name="image" required>
+    <br><br>
+    <input type="password" name="password" placeholder="Enter Password" required>
+    <br><br>
+    <input type="submit" value="Register">
+</form>
+
+
+<% 
+
+  if(typeof message !== 'undefined'){
+     %>
+       <p style="color: green;"><%= message %></p>
+     <%
+  }
+
+%>   -->
+<section class="login p-fixed d-flex text-center bg-primary common-img-bg">
+  <!-- Container-fluid starts -->
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-sm-12">
+              <!-- Authentication card start -->
+              <div class="signup-card card-block auth-body mr-auto ml-auto">
+                <form class="md-float-material" id="signup-form" action="" method="post" enctype="multipart/form-data">
+                      <div class="text-center">
+                          <img src="assets/images/auth/logo-dark.png" alt="logo.png" style="width:150px;">
+                      </div>
+                      <div class="auth-box">
+                          <div class="row m-b-20">
+                              <div class="col-md-12">
+                                  <h3 class="text-center txt-primary">Sign up. It is fast and easy.</h3>
+                              </div>
+                          </div>
+                          <hr/>
+                          <div class="input-group">
+                              <input type="text" class="form-control" name="name" placeholder="Choose Username" required>
+                              <span class="md-line"></span>
+                          </div>
+                          <div class="input-group">
+                            <input type="tel" class="form-control" name="mno" placeholder="Your Phone" required>
+                            <span class="md-line"></span>
+                        </div>
+                          <div class="input-group">
+                              <input type="email" class="form-control"  name="email" placeholder="Your Email Address" required>
+                              <span class="md-line"></span>
+                          </div>
+                          <div class="input-group">
+                              <input type="file" class="form-control"  name="image"  required>
+                              <span class="md-line"></span>
+                          </div>
+                          <div class="input-group">
+                              <input type="password" name="password" class="form-control" placeholder="Your Password" required>
+                              <span class="md-line"></span>
+                          </div>
+                          
+                          <div class="row m-t-30">
+                              <div class="col-md-12">
+                                  <button type="submit" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Sign up now.</button>
+                              </div>
+                          </div>
+                          <div class=" forgot-phone ">
+                            <a href="/login" class="align-center f-w-600 text-inverse"> Go Back</a>
+                          </div>
+                          <div id="validation-message" class="validation-message text-danger "  ></div>
+                          <% 
+
+  if(typeof message !== 'undefined'){
+     %>
+       <p style="color: green;"><%= message %></p>
+     <%
+  }
+
+%>
+                      </div>
+                  </form>
+                  
+                  <!-- end of form -->
+              </div>
+              <!-- Authentication card end -->
+          </div>
+          <!-- end of col-sm-12 -->
+      </div>
+      <!-- end of row -->
+  </div>
+  <!-- end of container-fluid -->
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("signup-form");
+      const nameInput = form.querySelector('input[name="name"]');
+      const emailInput = form.querySelector('input[name="email"]');
+      const phoneInput = form.querySelector('input[name="mno"]');
+      const submitButton = form.querySelector('button[type="submit"]');
+      const validationMessage = document.getElementById("validation-message");
+  
+      function validateName() {
+        const namePattern = /^[A-Za-z\s]+$/;
+        if (!namePattern.test(nameInput.value)) {
+          validationMessage.textContent = "Name can only contain letters and spaces.";
+          return false;
+        }
+        return true;
+      }
+  
+      function validateEmail() {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(emailInput.value)) {
+          validationMessage.textContent = "Please enter a valid email address.";
+          return false;
+        }
+        return true;
+      }
+  
+      function validatePhone() {
+        const phonePattern = /^\d{10}$/;
+        if (!phonePattern.test(phoneInput.value)) {
+          validationMessage.textContent = "Phone number must be 10 digits.";
+          return false;
+        }
+        return true;
+      }
+  
+      function updateSubmitButton() {
+        const isNameValid = validateName();
+        const isEmailValid = validateEmail();
+        const isPhoneValid = validatePhone();
+  
+        const isValid = isNameValid && isEmailValid && isPhoneValid;
+        submitButton.disabled = !isValid;
+  
+        // Clear the message if all validations are successful
+        if (isValid) {
+          validationMessage.textContent = "";
+        }
+      }
+  
+      nameInput.addEventListener("blur", updateSubmitButton);
+      emailInput.addEventListener("blur", updateSubmitButton);
+      phoneInput.addEventListener("blur", updateSubmitButton);
+  
+      // Disable the submit button initially
+      submitButton.disabled = true;
+    });
+  </script>  
+<%- include('../layouts/footer.ejs') %> 

@@ -1,0 +1,190 @@
+<%- include("../layouts/header.ejs") %>
+
+
+<div id="pcoded" class="pcoded">
+  <div class="pcoded-overlay-box"></div>
+  <div class="pcoded-container navbar-wrapper">
+
+      <nav class="navbar header-navbar pcoded-header">
+          <div class="navbar-wrapper">
+
+              <div class="navbar-logo">
+                  <a class="mobile-menu" id="mobile-collapse" href="#!">
+                      <i class="ti-menu"></i>
+                  </a>
+                  <a class="mobile-search morphsearch-search" href="#">
+                      <i class="ti-search"></i>
+                  </a>
+                  <a href="index.html">
+                      <img class="img-fluid" src="assets/images/logo.png" style="width: 50px;" alt="Theme-Logo" />
+                  </a>
+                  <a class="mobile-options">
+                      <i class="ti-more"></i>
+                  </a>
+              </div>
+
+              <div class="navbar-container container-fluid">
+                  <ul class="nav-left">
+                      <li>
+                          <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+                      </li>
+                      
+                      <li>
+                          <a href="#!" onclick="javascript:toggleFullScreen()">
+                              <i class="ti-fullscreen"></i>
+                          </a>
+                      </li>
+                  </ul>
+                  <ul class="nav-right">
+                    
+                      
+                  </ul>
+                  
+              </div>
+          </div>
+      </nav>
+
+      <div class="pcoded-main-container">
+          <div class="pcoded-wrapper">
+              <nav class="pcoded-navbar">
+                  <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+                  <div class="pcoded-inner-navbar main-menu">
+                      
+                      <div class="pcoded-search">
+                          <span class="searchbar-toggle">  </span>
+                          <div class="pcoded-search-box ">
+                              <input type="text" placeholder="Search">
+                              <span class="search-icon"><i class="ti-search" aria-hidden="true"></i></span>
+                          </div>
+                      </div>
+                     
+                      <ul class="pcoded-item pcoded-left-item">
+                          <li class="">
+                              <a href="#">
+                                  <span class="pcoded-micon"><i class="ti-home"></i><b>Dashboard</b></span>
+                                  <span class="pcoded-mtext" data-i18n="nav.dash.main">Home</span>
+                                  <span class="pcoded-mcaret"></span>
+                              </a>
+                          </li>
+                          
+                      </ul>
+                      <div class="pcoded-navigatio-lavel" data-i18n="nav.category.forms">Actions</div>
+                      <ul class="pcoded-item pcoded-left-item">
+                          <li>
+                            <a href="/admin/new-user">
+                                  <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                  <span class="pcoded-mtext" data-i18n="nav.form-components.main">new user</span>
+                                  <span class="pcoded-mcaret"></span>
+                              </a>
+                          </li>
+                          <li>
+                            <a href="/admin/home">
+                                  <span class="pcoded-micon"><i class="ti-layers"></i><b>FC</b></span>
+                                  <span class="pcoded-mtext" data-i18n="nav.form-components.main">Home</span>
+                                  <span class="pcoded-mcaret"></span>
+                              </a>
+                          </li>
+                          
+                      </ul>               
+                      
+                  </div>
+              </nav>
+              <div class="pcoded-content">
+                  <div class="pcoded-inner-content">
+
+                      <div class="main-body">
+                          <div class="page-wrapper">
+                              
+
+                              <div class="page-body">
+                                  <div class="row">
+                                      <div class="col-sm-12">
+                                          <div class="card">
+                                              <div class="card-header">
+                                                  <h5>users</h5>
+                                                
+                                                  
+                                              </div>
+                                              <div class="card-block">
+                                                <table class="table text-start align-middle table-bordered table-hover mb-0">
+                                                  <thead>
+                                                      <tr >
+                                                          <th scope="col">Name</th>
+                                                          <th scope="col">@Email</th>
+                                                          <th scope="col">Mobile</th>
+                                                          <th scope="col">Dp</th>
+                                                          <th scope="col">Status</th>
+                                                          <th scope="col">Actions</th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      <% 
+                                if(users.length > 0){
+                                 for(let i=0;i<users.length;i++){
+                                   %>
+                                                      <tr>
+                                                          <td><%= users[i].name %></td>
+                                      <td><%= users[i].email %></td>
+                                      <td><%= users[i].mobile %></td>
+                                      <td> 
+                                        
+                                        <div class="position-relative">
+                                            <img class="rounded-circle" src="/userImages/<%= users[i].image %>" alt="<%= users[i].image %>" style="width: 100px; height: 100px;">
+                                
+                                        
+                                        <!-- <img src="/userImages/<%= users[i].image %>" alt="<%= users[i].image %>" width="100px" height="100px"></td> -->
+                                      <td><%
+                                          if(users[i].is_varified == 0){
+                                            %>
+                                             <p>Not Verified <i class="fa fa-exclamation" style="color: rgb(255, 3, 3);"></i></p>
+                                            <%
+                                          } 
+                                          else{
+                                            %>
+                                            <p>Verified <i class="fa fa-check" style="color: rgb(106, 255, 0);"></i></p> 
+                                
+                                            <%
+                                          }
+                                           %></td>
+                                                          <td>
+                                                              <a  class="btn  btn-success" href="/admin/edit-user?id=<%= users[i]._id %>">Edit <i class="fa fa-edit"></i></a>
+                                                              <a  class="btn  btn-primary" href="/admin/delete-user?id=<%= users[i]._id %>#">Delete <i class="fa fa-trash"></i></a>
+                                                          </td>
+                                                      </tr>
+                                                      <%
+                                 }
+                                }
+                                else{
+                                %>
+                                <tr>
+                                  <td colspan="5">Users Not Found</td>
+                                </tr>
+                                <%
+                                }
+                                %>
+                                                      
+                                                      
+                                                      
+                                                  </tbody>
+                                              </table>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="fixed-button">
+<a href="https://codedthemes.com/item/guru-able-admin-template/" target="_blank" class="btn btn-md btn-primary">
+<i class="fa fa-shopping-cart" aria-hidden="true"></i> Upgrade To Pro
+</a>
+</div>
+
+<%- include("../layouts/footer.ejs") %>
